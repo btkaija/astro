@@ -36,17 +36,20 @@ num_bins = float(line_data[17])
 
 print('\n', starting_freq, freq_step, num_bins)
 
-num_samples = len(lines)) 
+num_samples = len(lines) 
 
-print 'beginning data separation...'
+print('\nbeginning data separation...')
 
 for sample_num in range(num_samples):
 	lines[sample_num] = lines[sample_num].split(' ')
+	
+	for item in lines[sample_num]:
+		if item == '':
+			lines[sample_num].remove('')
+		else:
+			pass
 
-print 'beginning bin averaging...'
+print(lines[1])
+print('\nbeginning bin averaging...')
 
 average_powers = []
-for bin_num in range(num_bins):
-	sum_powers = 0
-	for sample_num in range(1:num_samples):
-		sum_powers = sum_powers + 
