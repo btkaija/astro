@@ -40,7 +40,6 @@ for sample_num in range(1, num_samples):
 	for i in range(num_spaces):
 		lines[sample_num].remove('')
 
-
 #debug lines
 #print('\n', lines[1])
 
@@ -77,7 +76,6 @@ for i in range(1, num_samples):
 vlsr_av = vlsr_av/(num_samples-1)
 print('\naverage VLSR: ', vlsr_av)
 
-
 corrected_speeds = []
 
 for i in range(int(num_bins)):
@@ -85,19 +83,17 @@ for i in range(int(num_bins)):
 	speed = -1*vlsr_av - 300000*((freq - 1420.4)/1420.4)
 	corrected_speeds.append(speed)
 
-
 print('\n', corrected_powers)
 
 print('\n', corrected_speeds)
-
 
 wb = Workbook()
 # grab the active worksheet
 ws = wb.active
 for i in range(len(corrected_powers)):
-	ws.cell(column=1, row=i+2, value=corrected_powers[i])
+	ws.cell(column=2, row=i+2, value=corrected_powers[i])
 
 for i in range(len(corrected_speeds)):
-	ws.cell(column=2, row=i+2, value=corrected_speeds[i])
+	ws.cell(column=1, row=i+2, value=corrected_speeds[i])
 
-wb.save(file_path+'.xslx')
+wb.save(file_path+'.xlsx')
